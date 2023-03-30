@@ -1,8 +1,10 @@
-package com.vicentearmenta.androidtriviatesting;
+package com.vicentearmenta.androidtriviatesting.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.vicentearmenta.androidtriviatesting.R;
 
 public class ResultActivity extends AppCompatActivity {
 
@@ -10,5 +12,7 @@ public class ResultActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_result);
+
+
     }
 }

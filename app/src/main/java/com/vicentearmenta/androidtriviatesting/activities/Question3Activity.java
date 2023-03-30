@@ -1,4 +1,4 @@
-package com.vicentearmenta.androidtriviatesting;
+package com.vicentearmenta.androidtriviatesting.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,7 +6,7 @@ import android.os.Bundle;
 
 import com.vicentearmenta.androidtriviatesting.databinding.ActivityQuestion3Binding;
 
-public class Question3Activity extends AppCompatActivity {
+public class Question3Activity extends Question1Activity {
 
     ActivityQuestion3Binding binding;
 

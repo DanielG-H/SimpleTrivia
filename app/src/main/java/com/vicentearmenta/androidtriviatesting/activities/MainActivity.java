@@ -1,4 +1,4 @@
-package com.vicentearmenta.androidtriviatesting;
+package com.vicentearmenta.androidtriviatesting.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -8,16 +8,21 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Toast;
 
+import com.vicentearmenta.androidtriviatesting.R;
+import com.vicentearmenta.androidtriviatesting.database.DatabaseOperations;
 import com.vicentearmenta.androidtriviatesting.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
     ActivityMainBinding binding;
+    DatabaseOperations mDBOperations;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
+        mDBOperations = new DatabaseOperations(MainActivity.this);
 
         binding.btnStart.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -26,7 +31,12 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(MainActivity.this, R.string.toastEmptyName, Toast.LENGTH_LONG).show();
                 }
                 else{
+                    String userId = mDBOperations.insertUsername(binding.editName.getText().toString());
+
                     Intent intent = new Intent(MainActivity.this, Question1Activity.class);
+                    intent.putExtra("USERID", userId);
+                    intent.putExtra("QUESTIONS", "0");
+
                     startActivity(intent);
                 }
             }
